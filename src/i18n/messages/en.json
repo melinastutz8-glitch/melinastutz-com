@@ -5,7 +5,7 @@
     "researchTitle": "Research",
     "researchDescription": "What Melina Stutz finds compelling about mitochondria, the lab methods she brings and the projects she has worked on.",
     "cvTitle": "CV",
-    "cvDescription": "Education, hospital work and engagement of Melina Stutz: from an apprenticeship as a healthcare worker to an MSc in Biomedicine in Zurich.",
+    "cvDescription": "Education, hospital work, teaching and youth work of Melina Stutz: from an apprenticeship as a healthcare worker to an MSc in Biomedicine in Zurich.",
     "contactTitle": "Contact",
     "contactDescription": "Contact Melina Stutz about PhD positions and research projects in mitochondrial and metabolic research.",
     "imprintTitle": "Imprint",
@@ -15,12 +15,10 @@
   },
   "nav": {
     "label": "Main navigation",
-    "home": "Home",
     "research": "Research",
     "cv": "CV",
     "contact": "Contact",
     "menu": "Menu",
-    "close": "Close",
     "skip": "Skip to content",
     "switchLabel": "Deutsche Version",
     "switchShort": "DE"
@@ -59,7 +57,7 @@
     "profileLanguages": "German, English, French",
     "moreHeading": "Read more",
     "moreResearch": "What draws me to mitochondria, my methods and projects",
-    "moreCv": "Education, hospital work and engagement in detail",
+    "moreCv": "Education, hospital work, teaching and youth work in detail",
     "ctaHeading": "Looking for a PhD student?",
     "ctaText": "I'd be glad to hear from research groups working on mitochondria and metabolism, whether about an open position or an informal first conversation",
     "ctaButton": "Get in touch"
@@ -88,10 +86,10 @@
   },
   "cv": {
     "title": "CV",
-    "intro": "From an apprenticeship as a healthcare worker through the Passerelle to the University of Zurich, working in hospital alongside until 2026",
+    "intro": "From an apprenticeship as a healthcare worker through the Passerelle to the University of Zurich, with hospital work alongside until 2026",
     "educationHeading": "Education",
     "clinicalHeading": "Clinical experience",
-    "engagementHeading": "Engagement",
+    "engagementHeading": "Teaching and youth work",
     "languagesHeading": "Languages",
     "interestsHeading": "Interests"
   },
@@ -129,9 +127,9 @@
     "hostingHeading": "Hosting and Cloudflare",
     "hostingText": "The website runs on a privately operated server in Switzerland. A private individual operates the server on my behalf and may use the data only to run the website. All requests pass through the network of Cloudflare, Inc., San Francisco (USA). Cloudflare provides the encrypted connection, protects the website from attacks and forwards requests to the server. In doing so, Cloudflare processes the connection data listed above on my behalf, in the data centre closest to you (usually in Switzerland for visits from Switzerland) and in the USA. The Swiss Federal Council has recognised that US companies certified under the Swiss-U.S. Data Privacy Framework provide adequate data protection (in force since 15 September 2024). Cloudflare, Inc. is certified. For data centres in other countries without adequate protection, Cloudflare relies on the EU standard contractual clauses recognised by the FDPIC.",
     "noTrackingHeading": "No cookies, no tracking",
-    "noTrackingText": "This website sets no cookies, uses no analytics or advertising services and loads no third-party content. It serves its fonts itself. The LinkedIn link is a plain link: LinkedIn receives data only when you click it, and from then on LinkedIn’s privacy policy applies. Only if Cloudflare suspects automated access may it set a technically necessary security cookie.",
+    "noTrackingText": "This website sets no cookies, uses no analytics or advertising services and loads no third-party content. It serves its fonts itself. The LinkedIn link is a plain link: LinkedIn receives data only when you click it, and from then on LinkedIn's privacy policy applies. Only if Cloudflare suspects automated access may it set a technically necessary security cookie.",
     "emailHeading": "Contact by email",
-    "emailText": "If you email me, I process your email address, your name and the content of your message to answer your enquiry. My mailbox is hosted by Apple’s iCloud Mail (Apple Distribution International Ltd., Ireland). Apple may also store emails in the USA and other countries and relies on standard contractual clauses for this. I do not pass your messages on to anyone else without your consent. I delete them once they are no longer needed for our correspondence, at the latest after 24 months.",
+    "emailText": "If you email me, I process your email address, your name and the content of your message to answer your enquiry. My mailbox is hosted by Apple's iCloud Mail (Apple Distribution International Ltd., Ireland). Apple may also store emails in the USA and other countries and relies on standard contractual clauses for this. I do not pass your messages on to anyone else without your consent. I delete them once they are no longer needed for our correspondence, at the latest after 24 months.",
     "rightsHeading": "Your rights",
     "rightsText": "You can ask whether and which personal data I process about you. You can also ask for incorrect data to be corrected, or for data to be deleted or no longer processed. Write to the email address in the imprint; I may ask you to confirm your identity. If you think I am not handling your data correctly, you can report this to the Federal Data Protection and Information Commissioner (FDPIC) or assert your claims before a civil court."
   },

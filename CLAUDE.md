@@ -61,7 +61,8 @@ On Melina's Mac the tools live in `~/.local/bin`, which is not on PATH: prefix c
 ## Content still missing
 
 `<Pending>` blocks on the research page mark content Melina has not supplied yet (research question, lab
-methods, projects, posters). `LINKEDIN_URL` in `src/data/cv.ts` is empty until she sends it. All of these must be
+methods, projects, posters). `LINKEDIN_URL` in `src/data/cv.ts` is empty until she sends it; if LinkedIn is dropped instead, remove the
+LinkedIn sentence from `privacy.noTrackingText` in both languages. All of these must be
 filled or removed before the site goes live. `public/llms.txt` describes the research page as it is now
 (motivation and interests only): update it together with the research content.
 

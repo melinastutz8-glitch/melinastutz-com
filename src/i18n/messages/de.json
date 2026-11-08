@@ -15,12 +15,10 @@
   },
   "nav": {
     "label": "Hauptnavigation",
-    "home": "Start",
     "research": "Forschung",
     "cv": "Werdegang",
     "contact": "Kontakt",
     "menu": "Menü",
-    "close": "Schliessen",
     "skip": "Zum Inhalt springen",
     "switchLabel": "English version",
     "switchShort": "EN"

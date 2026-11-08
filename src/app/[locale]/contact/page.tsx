@@ -29,7 +29,7 @@ export default async function ContactPage({ params }: Props) {
 
       <section className="section">
         <div className="container">
-          <dl className="entry-list contact-list">
+          <dl className="entry-list">
             <div className="entry">
               <dt className="entry-title">{t('emailHeading')}</dt>
               <dd>

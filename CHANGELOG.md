@@ -25,25 +25,11 @@ All notable changes to this project are documented here. The format follows
   carries the same notices.
 - Share image for link previews: a static 1200×630 PNG per locale (`/de/og-image.png`, `/en/og-image.png`),
   rendered at build time by `next/og`, referenced by every page as `og:image` and `twitter:image`.
-
-### Changed
-
-- Deployment: `enableServiceLinks: false`, a 5 s `preStop` sleep so cloudflared gets no 502s during rollouts,
-  readiness probe every 5 s, liveness timeout 2 s; the image tag is marked as a placeholder until the first
-  `main` build.
-- PodDisruptionBudget: `unhealthyPodEvictionPolicy: AlwaysAllow`; comments state that it guards manual drains
-  only, while the spread over nodes covers reboots.
-- DEPLOYMENT.md: hand-over rewritten with the order of first deployment, the Cloudflare zone in the tunnel's
-  account, exact Flux object and secret names, ruleset notes, a go-live gate and the CI coverage per event.
-- Privacy notice rewritten for the Swiss FADP: Cloudflare with the Swiss-U.S. Data Privacy Framework, iCloud
-  Mail, retention periods and the right to report to the FDPIC.
-- Imprint: notes on the private, non-commercial site and on external links; copyright and licences.
-- Sitemap with one entry per language.
-- Mobile menu and landmark fixes; smaller client bundle.
-- `llms.txt` describes the research page as it is now (motivation and interests) and the hospital years
-  accurately.
-- DEPLOYMENT.md: open points for Dominic on data protection roles and a processing agreement (14-day log
-  retention, Cloudflare features), the access log format, iCloud Mail and a yearly check of Cloudflare's DPF
-  certification.
+- Hardened Deployment (`enableServiceLinks: false`, 5 s `preStop` sleep, probe timings) and PDB
+  (`unhealthyPodEvictionPolicy: AlwaysAllow`); the image tag is a placeholder until the first `main` build.
+- DEPLOYMENT.md with the runtime contract and the hand-over for Dominic (order of first deployment, Cloudflare
+  zone in the tunnel's account, Flux names, rulesets, go-live gate, CI coverage per event).
+- Privacy notice for the Swiss FADP (Cloudflare with the Swiss-U.S. Data Privacy Framework, iCloud Mail,
+  retention periods, reporting to the FDPIC) and an imprint with notes on copyright and licences.
 
 [Unreleased]: https://github.com/melinastutz8-glitch/melinastutz-com/commits/main

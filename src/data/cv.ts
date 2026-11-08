@@ -132,9 +132,9 @@ export const LANGUAGES: readonly Localized[] = [
 
 export const INTERESTS: readonly Localized[] = [
   { de: 'Reiten', en: 'Horse riding' },
-  { de: 'Geräteturnen', en: 'Gymnastics' },
-  { de: 'Snowboarden', en: 'Snowboarding' },
-  { de: 'Langstreckenläufe', en: 'Long-distance running' },
+  { de: 'Geräteturnen', en: 'gymnastics' },
+  { de: 'Snowboarden', en: 'snowboarding' },
+  { de: 'Langstreckenläufe', en: 'long-distance running' },
 ];
 
 /** Public LinkedIn profile URL; empty until Melina sends it (then the link appears). */

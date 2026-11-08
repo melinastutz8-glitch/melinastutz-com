@@ -2,8 +2,8 @@
 // The sitemap's <lastmod> comes from here, so keep it accurate: search engines
 // ignore lastmod values that are not. Bump a page's date when its main
 // content or its structured data changes; header and footer changes do not
-// count. A new public page needs an entry here (sitemap.test.ts fails
-// otherwise).
+// count. A new public page needs an entry here: its generateMetadata takes a
+// `PageHref`, so typecheck fails otherwise.
 export const SITE_LAUNCH_DATE = '2026-11-08';
 
 export const PAGE_LAST_MODIFIED = {

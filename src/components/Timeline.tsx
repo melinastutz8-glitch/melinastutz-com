@@ -8,7 +8,9 @@ import { CLINICAL, EDUCATION, formatRange, type CvEntry, type YearMonth } from '
 import { buildMonth } from '@/lib/buildMonth';
 
 const AXIS_START = 2017;
-const AXIS_END = 2027; // exclusive: the axis runs to January 2027
+// Exclusive end of the axis: January of the year after the build, at least 2027,
+// so ongoing bars and the today line never hit the right edge in later years.
+const AXIS_END = Math.max(2027, Number(buildMonth().slice(0, 4)) + 1);
 const AXIS_MONTHS = (AXIS_END - AXIS_START) * 12;
 
 function monthIndex(ym: YearMonth): number {

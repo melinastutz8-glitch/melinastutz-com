@@ -90,6 +90,12 @@ expect_status /_next/static/chunks/ 404
 # SEO files.
 for p in /robots.txt /sitemap.xml /llms.txt; do expect_status "$p" 200; done
 
+# Licence notices (an obligation of the bundled licences) and the share images.
+expect_status /third-party-notices.txt 200
+expect_status /de/og-image.png 200
+expect_header /de/og-image.png Content-Type image/png
+expect_header /de/og-image.png Cache-Control "public, max-age=86400"
+
 # A hashed static asset referenced by the home page.
 home=$(curl -sS "$BASE/de/")
 asset=$(grep -oE '/_next/static/[^"]+\.(js|css)' <<<"$home" | head -1 || true)
