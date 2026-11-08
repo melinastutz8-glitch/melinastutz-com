@@ -1,6 +1,8 @@
 // Curriculum vitae data, taken from Melina's CV (Lebenslauf, 2026).
 // Dates are `YYYY-MM`; `end: null` means ongoing. The home-page timeline and
 // the CV page both read from here, so the two never disagree.
+// English keeps Swiss institution and qualification names that have no
+// official English form, with a short gloss in brackets.
 import type { Locale } from '@/i18n/routing';
 
 export type Localized = Record<Locale, string>;
@@ -14,7 +16,7 @@ export interface CvEntry {
   end: YearMonth | null;
   /** Short label for the timeline bar. */
   short: Localized;
-  /** One line about the role, shown on the CV page. */
+  /** One line about the role, shown on the CV page (no trailing period). */
   note?: Localized;
 }
 
@@ -37,10 +39,10 @@ export const EDUCATION: readonly CvEntry[] = [
   },
   {
     id: 'passerelle',
-    title: { de: 'Passerelle', en: 'Passerelle (university entrance qualification)' },
+    title: { de: 'Passerelle', en: 'Passerelle (bridging course to university)' },
     org: {
       de: 'Aargauische Maturitätsschule für Erwachsene, Aarau',
-      en: 'Aargau Maturity School for Adults, Aarau',
+      en: 'Aargauische Maturitätsschule für Erwachsene, Aarau',
     },
     start: '2020-08',
     end: '2021-07',
@@ -49,38 +51,39 @@ export const EDUCATION: readonly CvEntry[] = [
   {
     id: 'bm',
     title: { de: 'Berufsmaturität', en: 'Vocational baccalaureate' },
-    org: { de: 'Berufsbildungsschule Winterthur', en: 'Vocational school Winterthur' },
+    org: { de: 'Berufsbildungsschule Winterthur', en: 'Berufsbildungsschule Winterthur (vocational school)' },
     start: '2017-08',
     end: '2020-08',
-    short: { de: 'Berufsmaturität', en: 'Vocational baccalaureate' },
+    short: { de: 'Berufsmaturität', en: 'vocational baccalaureate' },
   },
   {
     id: 'efz',
     title: {
       de: 'Fachfrau Gesundheit EFZ',
-      en: 'Healthcare professional, Swiss federal VET diploma (EFZ)',
+      en: 'Fachfrau Gesundheit EFZ (trained healthcare worker, Swiss federal VET diploma)',
     },
     org: {
       de: 'Zentrum für Ausbildung im Gesundheitswesen, Winterthur',
-      en: 'Centre for Healthcare Education, Winterthur',
+      en: 'Zentrum für Ausbildung im Gesundheitswesen, Winterthur (healthcare training centre)',
     },
     start: '2017-08',
     end: '2020-08',
-    short: { de: 'Lehre FaGe EFZ', en: 'Apprenticeship' },
+    // The timeline lane is already called "Lehre", so the German label stays short.
+    short: { de: 'FaGe EFZ', en: 'Apprenticeship' },
   },
 ];
 
 export const CLINICAL: readonly CvEntry[] = [
   {
     id: 'hospital',
-    title: { de: 'Fachfrau Gesundheit', en: 'Healthcare professional' },
-    org: { de: 'Bezirksspital Affoltern am Albis', en: 'District hospital Affoltern am Albis' },
+    title: { de: 'Fachfrau Gesundheit', en: 'Fachfrau Gesundheit (trained healthcare worker)' },
+    org: { de: 'Bezirksspital Affoltern am Albis', en: 'Bezirksspital Affoltern am Albis (district hospital)' },
     start: '2017-08',
     end: '2026-02',
-    short: { de: 'Bezirksspital Affoltern', en: 'District hospital Affoltern' },
+    short: { de: 'Bezirksspital Affoltern', en: 'Bezirksspital Affoltern' },
     note: {
-      de: 'Pflege und Betreuung im Akutspital, parallel zu Passerelle und Studium.',
-      en: 'Nursing care in an acute hospital, alongside the pre-university course and my studies.',
+      de: 'Pflege und Betreuung im Akutspital, parallel zu Passerelle und Studium',
+      en: 'Patient care in an acute hospital, alongside the Passerelle and my studies',
     },
   },
 ];

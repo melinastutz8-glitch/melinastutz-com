@@ -34,9 +34,10 @@ jobs:
       - id: ts
         run: echo "ts=$(date -u +%Y%m%dT%H%M%S)" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
         with:
-          version: 9.15.4
+          persist-credentials: false
+      # No `version:`: the action reads `packageManager` from package.json.
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22.23.4'
@@ -61,6 +62,9 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
         with:
+          # Same pinned BuildKit daemon as ci.yml. Not tracked by Dependabot;
+          # bump by hand in all three places.
+          driver-opts: image=moby/buildkit:v0.34.2@sha256:c5f8862f52499773af85bc07695b2379ef08e8002352b0df2c4864c91d78dabe
           buildkitd-config-inline: |
             [registry."docker.io"]
               mirrors = ["mirror.gcr.io"]
@@ -74,6 +78,9 @@ jobs:
           load: true
           tags: melinastutz-com:verify
           cache-from: type=gha,scope=build
+          # Export the cache so the build job reuses the smoke-tested build
+          # stage instead of rebuilding it.
+          cache-to: type=gha,scope=build,mode=max
       - name: Smoke test (read-only rootfs, UID 101)
         run: scripts/smoke-test.sh melinastutz-com:verify
 
@@ -86,9 +93,14 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
         with:
+          # Same pinned BuildKit daemon as ci.yml (not tracked by Dependabot,
+          # bumped by hand).
+          driver-opts: image=moby/buildkit:v0.34.2@sha256:c5f8862f52499773af85bc07695b2379ef08e8002352b0df2c4864c91d78dabe
           # Same registry mirror as ci.yml. Keep in sync.
           buildkitd-config-inline: |
             [registry."docker.io"]
@@ -102,6 +114,10 @@ jobs:
       - name: Extract metadata
         id: meta
         uses: docker/metadata-action@dc802804100637a589fabce1cb79ff13a1411302 # v6.2.0
+        env:
+          # OCI annotations on the index too, not only on each platform
+          # manifest, so registries show them for the multi-arch tag.
+          DOCKER_METADATA_ANNOTATIONS_LEVELS: manifest,index
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
@@ -118,6 +134,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          annotations: ${{ steps.meta.outputs.annotations }}
           cache-from: type=gha,scope=build
           cache-to: type=gha,scope=build,mode=max
       - name: Verify both platforms in the manifest list

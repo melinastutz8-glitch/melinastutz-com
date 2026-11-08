@@ -1,9 +1,11 @@
 // The home page's one rich moment: hospital work and education from 2017 to
 // today on one axis, drawn from the CV data. Pure HTML and CSS, positions in
 // percent of the axis, so it scales with the column. One accent: the master's
-// that is running now; everything else uses neutral steps.
+// that is running now and the "today" line; everything else uses neutral
+// steps. Faint year hairlines run behind the bars like squared notebook paper.
 import type { Locale } from '@/i18n/routing';
 import { CLINICAL, EDUCATION, formatRange, type CvEntry, type YearMonth } from '@/data/cv';
+import { buildMonth } from '@/lib/buildMonth';
 
 const AXIS_START = 2017;
 const AXIS_END = 2027; // exclusive: the axis runs to January 2027
@@ -15,12 +17,6 @@ function monthIndex(ym: YearMonth): number {
 }
 
 const pct = (months: number) => `${((Math.min(Math.max(months, 0), AXIS_MONTHS) / AXIS_MONTHS) * 100).toFixed(3)}%`;
-
-/** Month the site was built, `YYYY-MM`: ongoing bars end here. */
-function buildMonth(): YearMonth {
-  const now = new Date();
-  return `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, '0')}` as YearMonth;
-}
 
 interface Row {
   entry: CvEntry;
@@ -49,9 +45,10 @@ export function Timeline({
   const now = buildMonth();
   const efz = byId(EDUCATION, 'efz');
   const bm = byId(EDUCATION, 'bm');
+  const hospital = byId(CLINICAL, 'hospital');
 
   const lanes: Lane[] = [
-    { name: labels.hospital, rows: [{ entry: byId(CLINICAL, 'hospital'), label: byId(CLINICAL, 'hospital').short[locale], tone: 'strong' }] },
+    { name: labels.hospital, rows: [{ entry: hospital, label: hospital.short[locale], tone: 'strong' }] },
     { name: labels.training, rows: [{ entry: efz, label: `${efz.short[locale]}, ${bm.short[locale]}`, tone: 'soft' }] },
     {
       name: labels.study,
@@ -62,7 +59,8 @@ export function Timeline({
     },
   ];
 
-  const years = Array.from({ length: AXIS_END - AXIS_START + 1 }, (_, i) => AXIS_START + i);
+  // One tick per year inside the axis; the axis end (January 2027) gets none.
+  const years = Array.from({ length: AXIS_END - AXIS_START }, (_, i) => AXIS_START + i);
 
   return (
     <figure className="timeline" aria-labelledby="timeline-title">
@@ -74,6 +72,14 @@ export function Timeline({
       </figcaption>
 
       <div className="timeline-body">
+        <div className="timeline-grid" aria-hidden="true">
+          {years.map((y) => (
+            <span key={y} className="timeline-tick" style={{ left: pct((y - AXIS_START) * 12) }}>
+              <span className="date">{y}</span>
+            </span>
+          ))}
+        </div>
+
         {lanes.map((lane) => (
           <div className="timeline-lane" key={lane.name}>
             <span className="timeline-lane-name">{lane.name}</span>
@@ -81,13 +87,15 @@ export function Timeline({
               {lane.rows.map(({ entry, label, tone }) => {
                 const start = monthIndex(entry.start);
                 const end = monthIndex(entry.end ?? now) + 1;
-                // Late bars put their label on the right so it stays inside the axis.
-                const alignEnd = start / AXIS_MONTHS > 0.55;
+                // The label sits on the side of its bar with more room: from the
+                // start, or right-aligned to the end. It is in the flow, so a
+                // long label wraps inside the axis and the row grows.
+                const alignEnd = end > AXIS_MONTHS - start;
                 return (
                   <li className="timeline-row" key={entry.id}>
                     <span
                       className={`timeline-label${alignEnd ? ' is-end' : ''}`}
-                      style={alignEnd ? { right: `calc(100% - ${pct(end)})` } : { left: pct(start) }}
+                      style={alignEnd ? { marginRight: `calc(100% - ${pct(end)})` } : { marginLeft: pct(start) }}
                     >
                       {label} <span className="date">{formatRange(entry, locale)}</span>
                     </span>
@@ -103,11 +111,6 @@ export function Timeline({
         ))}
 
         <div className="timeline-axis" aria-hidden="true">
-          {years.map((y) => (
-            <span key={y} className="timeline-tick date" style={{ left: pct((y - AXIS_START) * 12) }}>
-              {y}
-            </span>
-          ))}
           <span className="timeline-now" style={{ left: pct(monthIndex(now) + 1) }}>
             <span className="date">{labels.today}</span>
           </span>

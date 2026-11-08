@@ -1,4 +1,7 @@
-# Keep one replica up during voluntary disruptions (node drains, reboots).
+# Keep one replica up during voluntary disruptions, i.e. manual node drains.
+# Node reboots in the homelab use systemctl + kubelet graceful shutdown, which
+# does not go through the eviction API; see the replicas comment in
+# deployment.yaml.
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
@@ -8,6 +11,8 @@ metadata:
     app: melinastutz-com
 spec:
   minAvailable: 1
+  # A crash-looping or unready pod never blocks a drain.
+  unhealthyPodEvictionPolicy: AlwaysAllow
   selector:
     matchLabels:
       app: melinastutz-com

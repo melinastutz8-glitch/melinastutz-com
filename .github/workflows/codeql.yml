@@ -1,6 +1,11 @@
 name: CodeQL
 
 on:
+  # Scanning main gives pull request results a baseline to compare against.
+  # Flux's image-tag commits under k8s/ change no code, so they are skipped.
+  push:
+    branches: [main]
+    paths-ignore: ['k8s/**']
   pull_request:
     branches: [main]
   schedule:
@@ -18,10 +23,9 @@ jobs:
     name: Analyze (${{ matrix.language }})
     runs-on: ubuntu-24.04
     timeout-minutes: 20
+    # Public repository: packages: read and actions: read are not needed.
     permissions:
       security-events: write
-      packages: read
-      actions: read
       contents: read
     strategy:
       fail-fast: false
@@ -34,6 +38,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - name: Initialize CodeQL
         uses: github/codeql-action/init@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
         with:

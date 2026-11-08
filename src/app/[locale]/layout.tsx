@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { isLocale, routing } from '@/i18n/routing';
-import { sans, serif } from '@/lib/fonts';
+import { mono, sans, serif } from '@/lib/fonts';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import '@/styles/globals.css';
@@ -31,7 +31,7 @@ export default async function LocaleLayout({
   const clientMessages = { nav: messages.nav, contact: messages.contact };
 
   return (
-    <html lang={locale} className={`${sans.variable} ${serif.variable}`}>
+    <html lang={locale} className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
       <body>
         <a className="skip-link" href="#main">
           {t('skip')}

@@ -20,3 +20,15 @@ All notable changes to this project are documented here. The format follows
   test; multi-arch build and push to GHCR with Flux tags; CodeQL; Dependabot for npm, actions and both base
   images.
 - Kubernetes manifests for Flux: Deployment (2 replicas, hardened), Service, NetworkPolicy, PodDisruptionBudget.
+
+### Changed
+
+- Deployment: `enableServiceLinks: false`, a 5 s `preStop` sleep so cloudflared gets no 502s during rollouts,
+  readiness probe every 5 s, liveness timeout 2 s; the image tag is marked as a placeholder until the first
+  `main` build.
+- PodDisruptionBudget: `unhealthyPodEvictionPolicy: AlwaysAllow`; comments state that it guards manual drains
+  only, while the spread over nodes covers reboots.
+- DEPLOYMENT.md: hand-over rewritten with the order of first deployment, the Cloudflare zone in the tunnel's
+  account, exact Flux object and secret names, ruleset notes, a go-live gate and the CI coverage per event.
+
+[Unreleased]: https://github.com/melinastutz8-glitch/melinastutz-com/commits/main

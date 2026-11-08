@@ -23,9 +23,11 @@ export async function Footer({ locale }: { locale: Locale }) {
           <Link href={localePath(locale, '/privacy')}>{t('privacy')}</Link>
         </nav>
       </div>
-      <div className="container footer-bottom">
-        <span className="date">© 2026 Melina Fabienne Stutz</span>
-        <span className="muted">{t('credit')}</span>
+      <div className="container">
+        <div className="footer-bottom">
+          <span className="muted">© 2026 Melina Fabienne Stutz</span>
+          <span className="muted">{t('credit')}</span>
+        </div>
       </div>
     </footer>
   );

@@ -10,7 +10,7 @@
 # does not depend on the target architecture, so the build runs once,
 # natively on the runner, even for the arm64 image. When the node tag moves,
 # bump `node-version` in ci.yml and build.yml and `.nvmrc` too.
-FROM --platform=$BUILDPLATFORM node:22.23.4-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914 AS build
+FROM --platform=$BUILDPLATFORM node:22.23.4-alpine@sha256:0e1754758c2df4cfa3e68d59e2e1b7374bb7fd9ea6328eaaacf15cc934af8202 AS build
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN corepack enable && corepack prepare pnpm@9.15.4 --activate
@@ -20,8 +20,10 @@ COPY . .
 RUN pnpm build
 
 # Runtime stage: unprivileged nginx (UID/GID 101, port 8080), stable branch.
+# Upstream publishes releases from 1.30.6 on as `nginx/nginx-unprivileged`
+# (formerly `nginxinc/`, which no longer receives the rebuilds).
 # No RUN instructions here, only COPY, so the multi-arch build needs no QEMU.
-FROM nginxinc/nginx-unprivileged:1.30.6-alpine@sha256:f5116ed4606f3eb015dd4a8e28cb9b351476dc0ad4bc6e9f93b19cec130cdf03
+FROM nginx/nginx-unprivileged:1.30.6-alpine@sha256:44e74ca483234093081138b6d7b6f561d55557756a2deefc3a5056148defeb99
 # The image's IPv6 entrypoint script cannot edit default.conf on the
 # read-only root filesystem and only logs that; this keeps the logs quiet.
 ENV NGINX_ENTRYPOINT_QUIET_LOGS=1

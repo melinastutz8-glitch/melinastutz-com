@@ -60,3 +60,7 @@ On Melina's Mac the tools live in `~/.local/bin`, which is not on PATH: prefix c
 `<Pending>` blocks on the research page mark content Melina has not supplied yet (research question, lab
 methods, projects, posters). `LINKEDIN_URL` in `src/data/cv.ts` is empty until she sends it. All of these must be
 filled or removed before the site goes live.
+
+The image tag `main-00000000T000000` in `k8s/deployment.yaml` is a placeholder. Replace it in a follow-up PR with
+the first real `main-<ts>` tag after the first `main` build (DEPLOYMENT.md, "Order of first deployment"); CI only
+checks its format. Flux manages the tag from then on.

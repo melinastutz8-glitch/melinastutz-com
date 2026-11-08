@@ -1,9 +1,14 @@
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { isLocale, localePath } from '@/i18n/routing';
+import { CLINICAL, formatRange } from '@/data/cv';
+import { buildMonth } from '@/lib/buildMonth';
 import { Timeline } from '@/components/Timeline';
 import { Icon } from '@/components/Icon';
+import { ContactBand } from '@/components/ContactBand';
+import { ContactEmail } from '@/components/ContactEmail';
 import { JsonLdScript } from '@/components/JsonLdScript';
 import { buildHomeJsonLd } from '@/lib/seo/jsonLd';
 import { localizedUrl } from '@/lib/seo/metadata';
@@ -23,11 +28,19 @@ export default async function HomePage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: 'home' });
   const meta = await getTranslations({ locale, namespace: 'meta' });
   const common = await getTranslations({ locale, namespace: 'common' });
+  const contact = await getTranslations({ locale, namespace: 'contact' });
+  const hospital = CLINICAL.find((e) => e.id === 'hospital');
 
-  const profile = [
+  const profile: [string, ReactNode][] = [
     [t('profileFocusLabel'), t('profileFocus')],
     [t('profileSeekingLabel'), t('profileSeeking')],
-    [t('profileClinicalLabel'), t('profileClinical')],
+    [
+      t('profileClinicalLabel'),
+      t.rich('profileClinical', {
+        range: hospital ? formatRange(hospital, locale) : '',
+        date: (chunks) => <span className="date">{chunks}</span>,
+      }),
+    ],
     [t('profileLanguagesLabel'), t('profileLanguages')],
   ];
 
@@ -46,13 +59,13 @@ export default async function HomePage({ params }: Props) {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-text">
-            <p className="status">{t('status')}</p>
+            <p className="status">
+              <span className="date">{buildMonth()}</span> {t('status')}
+            </p>
             <h1 className="hero-title">{t('title')}</h1>
             <p className="lead">{t('sub')}</p>
             <div className="actions">
-              <Link href={localePath(locale, '/contact')} className="btn btn-primary">
-                {t('ctaPrimary')}
-              </Link>
+              <ContactEmail label={t('ctaPrimary')} subject={contact('emailSubject')} className="btn btn-primary" />
               <Link href={localePath(locale, '/research')} className="btn btn-secondary">
                 {t('ctaSecondary')}
               </Link>
@@ -107,17 +120,7 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      <section className="section cta-band">
-        <div className="container cta-inner">
-          <div>
-            <h2 className="section-title">{t('ctaHeading')}</h2>
-            <p className="muted-text">{t('ctaText')}</p>
-          </div>
-          <Link href={localePath(locale, '/contact')} className="btn btn-primary">
-            {t('ctaButton')}
-          </Link>
-        </div>
-      </section>
+      <ContactBand locale={locale} />
     </>
   );
 }

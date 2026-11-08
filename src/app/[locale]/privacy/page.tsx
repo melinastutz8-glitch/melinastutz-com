@@ -19,18 +19,24 @@ export default async function PrivacyPage({ params }: Props) {
 
   return (
     <>
-      <header className="page-head container">
-        <h1 className="page-title">{t('title')}</h1>
-        <p className="date">{t('updated')}</p>
+      <header className="page-head">
+        <div className="container page-head-inner">
+          <h1 className="page-title">{t('title')}</h1>
+          <p className="date">{t('updated')}</p>
+        </div>
       </header>
-      <section className="section container legal">
-        <p>{t('introText')}</p>
-        {SECTIONS.map((key) => (
-          <div key={key}>
-            <h2 className="section-title">{t(`${key}Heading`)}</h2>
-            <p>{t(`${key}Text`)}</p>
+      <section className="section">
+        <div className="container">
+          <div className="legal">
+            <p>{t('introText')}</p>
+            {SECTIONS.map((key) => (
+              <div key={key}>
+                <h2 className="section-title">{t(`${key}Heading`)}</h2>
+                <p>{t(`${key}Text`)}</p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </section>
     </>
   );

@@ -1,7 +1,8 @@
 'use client';
 
-// Site header: wordmark, two page links, the language switch and one button.
-// On small screens the links collapse into one menu button.
+// Site header: wordmark, two page links, the language switch and one quiet
+// button (the hero keeps the one primary action). On small screens the links
+// collapse into one menu button.
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -66,7 +67,7 @@ export function Header() {
           </Link>
           <Link
             href={localePath(locale, '/contact')}
-            className="btn btn-primary btn-small header-cta"
+            className="btn btn-secondary btn-small header-cta"
             aria-current={isCurrent('/contact') ? 'page' : undefined}
           >
             {t('contact')}

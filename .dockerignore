@@ -10,3 +10,5 @@ k8s
 .env*
 Dockerfile
 .dockerignore
+*.tsbuildinfo
+next-env.d.ts

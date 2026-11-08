@@ -18,22 +18,28 @@ export default async function ImprintPage({ params }: Props) {
 
   return (
     <>
-      <header className="page-head container">
-        <h1 className="page-title">{t('title')}</h1>
+      <header className="page-head">
+        <div className="container page-head-inner">
+          <h1 className="page-title">{t('title')}</h1>
+        </div>
       </header>
-      <section className="section container legal">
-        <h2 className="section-title">{t('responsibleHeading')}</h2>
-        <p>
-          {t('name')}
-          <br />
-          {t('location')}
-          <br />
-          {t('emailLabel')}: <ContactEmail className="text-link" />
-        </p>
-        <h2 className="section-title">{t('liabilityHeading')}</h2>
-        <p>{t('liabilityText')}</p>
-        <h2 className="section-title">{t('copyrightHeading')}</h2>
-        <p>{t('copyrightText')}</p>
+      <section className="section">
+        <div className="container">
+          <div className="legal">
+            <h2 className="section-title">{t('responsibleHeading')}</h2>
+            <p>
+              {t('name')}
+              <br />
+              {t('location')}
+              <br />
+              {t('emailLabel')}: <ContactEmail className="text-link" />
+            </p>
+            <h2 className="section-title">{t('liabilityHeading')}</h2>
+            <p>{t('liabilityText')}</p>
+            <h2 className="section-title">{t('copyrightHeading')}</h2>
+            <p>{t('copyrightText')}</p>
+          </div>
+        </div>
       </section>
     </>
   );

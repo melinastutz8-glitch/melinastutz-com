@@ -20,36 +20,40 @@ export default async function ContactPage({ params }: Props) {
 
   return (
     <>
-      <header className="page-head container">
-        <h1 className="page-title">{t('title')}</h1>
-        <p className="lead">{t('intro')}</p>
+      <header className="page-head">
+        <div className="container page-head-inner">
+          <h1 className="page-title">{t('title')}</h1>
+          <p className="lead">{t('intro')}</p>
+        </div>
       </header>
 
-      <section className="section container">
-        <dl className="entry-list contact-list">
-          <div className="entry">
-            <dt className="entry-title">{t('emailHeading')}</dt>
-            <dd>
-              <ContactEmail subject={t('emailSubject')} className="contact-email">
-                <Icon name="arrowRight" />
-              </ContactEmail>
-            </dd>
-          </div>
-          {LINKEDIN_URL ? (
+      <section className="section">
+        <div className="container">
+          <dl className="entry-list contact-list">
             <div className="entry">
-              <dt className="entry-title">{t('linkedinHeading')}</dt>
+              <dt className="entry-title">{t('emailHeading')}</dt>
               <dd>
-                <a href={LINKEDIN_URL} className="text-link" rel="me noopener noreferrer" target="_blank">
-                  {t('linkedinLabel')} <Icon name="arrowUpRight" />
-                </a>
+                <ContactEmail subject={t('emailSubject')} className="contact-email">
+                  <Icon name="arrowRight" />
+                </ContactEmail>
               </dd>
             </div>
-          ) : null}
-          <div className="entry">
-            <dt className="entry-title">{t('locationHeading')}</dt>
-            <dd className="entry-text">{t('location')}</dd>
-          </div>
-        </dl>
+            {LINKEDIN_URL ? (
+              <div className="entry">
+                <dt className="entry-title">{t('linkedinHeading')}</dt>
+                <dd>
+                  <a href={LINKEDIN_URL} className="text-link" rel="me noopener noreferrer" target="_blank">
+                    {t('linkedinLabel')} <Icon name="arrowUpRight" />
+                  </a>
+                </dd>
+              </div>
+            ) : null}
+            <div className="entry">
+              <dt className="entry-title">{t('locationHeading')}</dt>
+              <dd className="entry-text">{t('location')}</dd>
+            </div>
+          </dl>
+        </div>
       </section>
     </>
   );
