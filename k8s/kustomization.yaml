@@ -1,0 +1,9 @@
+# Applied by Flux (Kustomization on ./k8s) in Dominic's homelab cluster.
+# Never `kubectl apply` this from a laptop (CLAUDE.md).
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deployment.yaml
+  - service.yaml
+  - networkpolicy.yaml
+  - pdb.yaml

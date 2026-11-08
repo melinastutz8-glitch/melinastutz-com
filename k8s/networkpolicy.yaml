@@ -1,0 +1,29 @@
+# Ingress hardening, same pattern as homelab cluster/apps/club-mcp: port 8080
+# is reachable only from the cloudflared pod in namespace `platform`. Egress is
+# not restricted (like every app in the cluster; an egress deny is Dominic's
+# call). Kubernetes always admits traffic from the pod's own node, so the
+# kubelet probes keep working.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: melinastutz-com
+  namespace: apps
+  labels:
+    app: melinastutz-com
+spec:
+  podSelector:
+    matchLabels:
+      app: melinastutz-com
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: platform
+          podSelector:
+            matchLabels:
+              pod: cloudflared
+      ports:
+        - protocol: TCP
+          port: 8080

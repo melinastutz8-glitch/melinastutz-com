@@ -1,0 +1,13 @@
+# Keep one replica up during voluntary disruptions (node drains, reboots).
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: melinastutz-com
+  namespace: apps
+  labels:
+    app: melinastutz-com
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: melinastutz-com
