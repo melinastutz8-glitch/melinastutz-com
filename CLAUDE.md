@@ -34,6 +34,9 @@ On Melina's Mac the tools live in `~/.local/bin`, which is not on PATH: prefix c
   and `dynamicParams = false`. Metadata routes (`robots.ts`, `sitemap.ts`) use `dynamic = 'force-static'`.
 - **No third-party requests at runtime**: fonts via `next/font` (downloaded at build), no CDNs, analytics,
   external scripts or iframes. That is why the site needs no cookie banner.
+- **Third-party notices**: a new font, icon or adapted code goes into both `THIRD_PARTY_NOTICES.md` and
+  `public/third-party-notices.txt` (served at `/third-party-notices.txt`, linked from the imprint), with its
+  licence text copied verbatim.
 - **Pin everything exactly**: no `^`/`~` (`.npmrc` `save-exact=true`), commit `pnpm-lock.yaml`, install with
   `--frozen-lockfile`; images as `tag@sha256:<index digest>`; actions by commit SHA with a version comment.
   Never `latest`. New dependencies only after asking Melina.
@@ -59,7 +62,13 @@ On Melina's Mac the tools live in `~/.local/bin`, which is not on PATH: prefix c
 
 `<Pending>` blocks on the research page mark content Melina has not supplied yet (research question, lab
 methods, projects, posters). `LINKEDIN_URL` in `src/data/cv.ts` is empty until she sends it. All of these must be
-filled or removed before the site goes live.
+filled or removed before the site goes live. `public/llms.txt` describes the research page as it is now
+(motivation and interests only): update it together with the research content.
+
+The privacy notice (`privacy` in the messages) states facts still to be confirmed with Dominic: server in
+Switzerland, server logs deleted after 14 days, and Cloudflare settings (no Cloudflare cookies, scripts or extra
+logging beyond a security cookie; DEPLOYMENT.md, "Open points for Dominic"). It also names the mail provider,
+Apple iCloud Mail. If any of these changes, update the notice in both languages.
 
 The image tag `main-00000000T000000` in `k8s/deployment.yaml` is a placeholder. Replace it in a follow-up PR with
 the first real `main-<ts>` tag after the first `main` build (DEPLOYMENT.md, "Order of first deployment"); CI only

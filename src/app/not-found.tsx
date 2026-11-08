@@ -1,20 +1,23 @@
 // The site-wide 404 page, exported as `out/404.html`. nginx serves it for
-// every unknown path in either language, so it speaks both.
-import type { Metadata } from 'next';
+// every unknown path in either language, so it speaks both. Next adds the
+// `noindex` robots tag to this page by itself.
+import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
 import { mono, sans, serif } from '@/lib/fonts';
+import { SITE_VIEWPORT } from '@/lib/seo/metadata';
 import de from '@/i18n/messages/de.json';
 import en from '@/i18n/messages/en.json';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Seite nicht gefunden | Page not found',
-  robots: { index: false, follow: true },
 };
+
+export const viewport: Viewport = SITE_VIEWPORT;
 
 export default function NotFound() {
   return (
-    <html lang="de" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
+    <html lang="de" className={`${sans.variable} ${serif.variable} ${mono.variable}`} data-scroll-behavior="smooth">
       <body>
         <main className="not-found container">
           <p className="muted">404</p>

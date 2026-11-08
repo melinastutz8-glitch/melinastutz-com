@@ -1,7 +1,7 @@
 {
   "meta": {
     "homeTitle": "Melina Stutz | Biomedizin, Mitochondrien",
-    "homeDescription": "Melina Stutz studiert Biomedizin im Master an der Universität Zürich und sucht eine Doktoratsstelle in der Mitochondrien- und Stoffwechselforschung. Von 2017 bis 2026 hat sie im Spital gearbeitet, zuerst in der Lehre als Fachfrau Gesundheit, dann neben dem Studium.",
+    "homeDescription": "Melina Stutz, Masterstudentin in Biomedizin an der Universität Zürich, sucht eine Doktoratsstelle in der Mitochondrienforschung. Von 2017 bis 2026 im Spital.",
     "researchTitle": "Forschung",
     "researchDescription": "Was Melina Stutz an Mitochondrien interessiert, welche Labormethoden sie mitbringt und an welchen Projekten sie gearbeitet hat.",
     "cvTitle": "Werdegang",
@@ -27,10 +27,11 @@
   },
   "footer": {
     "tagline": "MSc Biomedizin, Universität Zürich",
+    "pages": "Seiten",
     "legal": "Rechtliches",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
-    "credit": "Design-Grundlage: furchert.ch (MIT-Lizenz)"
+    "credit": "Code-Grundlage: furchert-ch (MIT-Lizenz)"
   },
   "common": {
     "pending": "Hier fehlt noch",
@@ -111,27 +112,28 @@
     "name": "Melina Fabienne Stutz",
     "location": "Merenschwand AG, Schweiz",
     "emailLabel": "E-Mail",
-    "liabilityHeading": "Haftung",
-    "liabilityText": "Die Inhalte dieser Website wurden sorgfältig erstellt. Für ihre Richtigkeit, Vollständigkeit und Aktualität wird keine Gewähr übernommen. Für die Inhalte verlinkter Websites sind ausschliesslich deren Betreiber verantwortlich.",
-    "copyrightHeading": "Urheberrecht",
-    "copyrightText": "Texte und Inhalte dieser Website gehören Melina Stutz. Eine Verwendung ausserhalb dieser Website braucht ihre Zustimmung. Der Quellcode basiert auf furchert.ch von Dominic Furchert und steht unter der MIT-Lizenz."
+    "liabilityHeading": "Hinweis",
+    "liabilityText": "Dies ist eine private, nicht kommerzielle Website. Ich halte die Inhalte so genau und aktuell wie möglich. Für die Inhalte externer Websites, auf die ich verlinke, sind deren Betreiber verantwortlich.",
+    "copyrightHeading": "Urheberrecht und Lizenzen",
+    "copyrightText": "Texte: © Melina Fabienne Stutz. Bitte fragen Sie mich, bevor Sie sie ausserhalb dieser Website verwenden. Teile des Quellcodes stammen aus furchert-ch, © 2026 Dominic Furchert, MIT-Lizenz. Die Symbole stammen von Lucide (ISC-Lizenz, teils MIT-Lizenz), die Schriften DM Sans, DM Mono und Newsreader stehen unter der SIL Open Font License 1.1.",
+    "licencesLink": "Vollständige Lizenztexte (Textdatei)"
   },
   "privacy": {
     "title": "Datenschutz",
     "updated": "Stand 2026-11",
-    "introText": "Diese Datenschutzerklärung erklärt, welche Personendaten beim Besuch von melinastutz.com bearbeitet werden. Sie richtet sich nach dem Schweizer Datenschutzgesetz (DSG).",
+    "introText": "Diese Datenschutzerklärung zeigt, welche Personendaten beim Besuch von melinastutz.com und bei einer Kontaktaufnahme per E-Mail bearbeitet werden: wozu, wer sie erhält und wie lange sie aufbewahrt werden. Sie richtet sich nach dem Schweizer Datenschutzgesetz (DSG).",
     "controllerHeading": "Verantwortliche Person",
-    "controllerText": "Melina Fabienne Stutz, Merenschwand AG, Schweiz. Erreichbar über die E-Mail-Adresse im Impressum.",
+    "controllerText": "Verantwortlich ist Melina Fabienne Stutz, Merenschwand AG, Schweiz. Diese Website ist privat und nicht kommerziell. Sie erreichen mich über die E-Mail-Adresse im Impressum.",
     "visitHeading": "Beim Besuch der Website",
-    "visitText": "Beim Aufruf einer Seite übermittelt Ihr Browser technisch nötige Angaben: IP-Adresse, Datum und Uhrzeit, die aufgerufene Seite, den Referrer und die Browser-Kennung. Diese Angaben werden nur verwendet, um die Website auszuliefern, ihren Betrieb zu sichern und Fehler zu finden. Sie werden nicht mit anderen Daten verknüpft und nur so lange aufbewahrt, wie es dafür nötig ist.",
+    "visitText": "Beim Aufruf einer Seite übermittelt Ihr Browser technisch nötige Angaben: IP-Adresse, Datum und Uhrzeit, die aufgerufene Seite, den Statuscode, die übertragene Datenmenge, die zuvor besuchte Seite (Referrer) und die Browser-Kennung (User-Agent). Diese Angaben werden nur verwendet, um die Website auszuliefern, sie vor Angriffen zu schützen und Fehler zu finden. Sie werden nicht für Statistiken ausgewertet und nicht mit anderen Daten verknüpft. Die Server-Protokolle werden nach 14 Tagen automatisch gelöscht. Muss ein konkreter Angriff oder Fehler untersucht werden, werden die betroffenen Einträge bis zum Abschluss der Abklärung aufbewahrt.",
     "hostingHeading": "Hosting und Cloudflare",
-    "hostingText": "Die Website läuft auf einem privat betriebenen Server in der Schweiz. Anfragen gehen über das Netzwerk von Cloudflare, Inc. (USA), das die Verbindung verschlüsselt und die Website vor Angriffen schützt. Dabei kann Cloudflare die genannten Verbindungsdaten auch ausserhalb der Schweiz bearbeiten. Cloudflare ist nach dem Swiss-U.S. Data Privacy Framework zertifiziert.",
+    "hostingText": "Die Website liegt auf einem privat betriebenen Server in der Schweiz. Eine Privatperson betreibt den Server in meinem Auftrag und darf die Daten nur für den Betrieb der Website verwenden. Alle Anfragen laufen über das Netzwerk von Cloudflare, Inc., San Francisco (USA). Cloudflare stellt die verschlüsselte Verbindung her, schützt die Website vor Angriffen und leitet die Anfragen an den Server weiter. Dabei bearbeitet Cloudflare die oben genannten Verbindungsdaten in meinem Auftrag, und zwar im Rechenzentrum, das Ihnen am nächsten liegt (bei Aufrufen aus der Schweiz meist in der Schweiz), sowie in den USA. Für Unternehmen in den USA, die nach dem Swiss-U.S. Data Privacy Framework zertifiziert sind, hat der Bundesrat einen angemessenen Datenschutz festgestellt (in Kraft seit 15. September 2024). Cloudflare, Inc. ist so zertifiziert. Für Rechenzentren in anderen Ländern ohne angemessenen Datenschutz stützt sich Cloudflare auf die vom EDÖB anerkannten Standardvertragsklauseln der EU.",
     "noTrackingHeading": "Keine Cookies, kein Tracking",
-    "noTrackingText": "Diese Website setzt keine Cookies, verwendet keine Analyse- oder Werbedienste und lädt keine Inhalte von Dritten. Die Schriften werden von dieser Website selbst ausgeliefert.",
+    "noTrackingText": "Diese Website setzt keine Cookies, verwendet keine Analyse- oder Werbedienste und lädt keine Inhalte von Dritten. Die Schriften liefert sie selbst aus. Der Link zu LinkedIn ist ein gewöhnlicher Link: LinkedIn erhält erst Daten, wenn Sie ihn anklicken; ab dann gilt die Datenschutzerklärung von LinkedIn. Nur wenn Cloudflare einen automatisierten Zugriff vermutet, kann es ein technisch nötiges Sicherheits-Cookie setzen.",
     "emailHeading": "Kontakt per E-Mail",
-    "emailText": "Wenn Sie eine E-Mail schreiben, werden Ihre Angaben nur verwendet, um Ihre Anfrage zu beantworten, und nicht an Dritte weitergegeben.",
+    "emailText": "Wenn Sie mir eine E-Mail schreiben, bearbeite ich Ihre E-Mail-Adresse, Ihren Namen und den Inhalt Ihrer Nachricht, um Ihre Anfrage zu beantworten. Mein Postfach liegt bei iCloud Mail von Apple (Apple Distribution International Ltd., Irland). Apple kann E-Mails auch in den USA und weiteren Ländern speichern und stützt sich dafür auf Standardvertragsklauseln. Ohne Ihr Einverständnis gebe ich Ihre Nachrichten nicht an andere weiter. Ich lösche sie, sobald sie für unsere Korrespondenz nicht mehr nötig sind, spätestens nach 24 Monaten.",
     "rightsHeading": "Ihre Rechte",
-    "rightsText": "Sie können Auskunft über Ihre Personendaten verlangen und deren Berichtigung oder Löschung fordern. Schreiben Sie dafür an die E-Mail-Adresse im Impressum. Sie können sich zudem beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) beschweren."
+    "rightsText": "Sie können Auskunft verlangen, ob und welche Personendaten ich über Sie bearbeite. Sie können zudem verlangen, dass falsche Daten berichtigt, Daten gelöscht oder nicht weiter bearbeitet werden. Schreiben Sie dafür an die E-Mail-Adresse im Impressum; ich kann Sie bitten, Ihre Identität nachzuweisen. Wenn Sie finden, dass ich Ihre Daten nicht korrekt bearbeite, können Sie dies dem Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) melden oder Ihre Ansprüche vor einem Zivilgericht geltend machen."
   },
   "notFound": {
     "title": "Seite nicht gefunden",

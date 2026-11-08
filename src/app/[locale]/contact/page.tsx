@@ -33,7 +33,12 @@ export default async function ContactPage({ params }: Props) {
             <div className="entry">
               <dt className="entry-title">{t('emailHeading')}</dt>
               <dd>
-                <ContactEmail subject={t('emailSubject')} className="contact-email">
+                <ContactEmail
+                  locale={locale}
+                  fallbackLabel={t('emailFallback')}
+                  subject={t('emailSubject')}
+                  className="contact-email"
+                >
                   <Icon name="arrowRight" />
                 </ContactEmail>
               </dd>

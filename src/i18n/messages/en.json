@@ -1,11 +1,11 @@
 {
   "meta": {
     "homeTitle": "Melina Stutz | Biomedicine, mitochondria",
-    "homeDescription": "Melina Stutz is an MSc student in Biomedicine at the University of Zurich, looking for a PhD position in mitochondrial and metabolic research. From 2017 to 2026 she worked in hospital, first as an apprentice healthcare worker, then alongside her studies.",
+    "homeDescription": "Melina Stutz, MSc student in Biomedicine at the University of Zurich, is looking for a PhD position in mitochondrial research. Hospital work 2017 to 2026.",
     "researchTitle": "Research",
     "researchDescription": "What Melina Stutz finds compelling about mitochondria, the lab methods she brings and the projects she has worked on.",
     "cvTitle": "CV",
-    "cvDescription": "Education, clinical experience and engagement of Melina Stutz: from an apprenticeship as a healthcare worker to an MSc in Biomedicine at the University of Zurich.",
+    "cvDescription": "Education, hospital work and engagement of Melina Stutz: from an apprenticeship as a healthcare worker to an MSc in Biomedicine in Zurich.",
     "contactTitle": "Contact",
     "contactDescription": "Contact Melina Stutz about PhD positions and research projects in mitochondrial and metabolic research.",
     "imprintTitle": "Imprint",
@@ -27,10 +27,11 @@
   },
   "footer": {
     "tagline": "MSc Biomedicine, University of Zurich",
+    "pages": "Pages",
     "legal": "Legal",
     "imprint": "Imprint",
     "privacy": "Privacy",
-    "credit": "Design based on furchert.ch (MIT licence)"
+    "credit": "Code based on furchert-ch (MIT licence)"
   },
   "common": {
     "pending": "Still missing",
@@ -111,27 +112,28 @@
     "name": "Melina Fabienne Stutz",
     "location": "Merenschwand AG, Switzerland",
     "emailLabel": "Email",
-    "liabilityHeading": "Liability",
-    "liabilityText": "The content of this website was written with care. No guarantee is given for its accuracy, completeness or currency. The operators of linked websites are solely responsible for their content.",
-    "copyrightHeading": "Copyright",
-    "copyrightText": "The texts and content of this website belong to Melina Stutz. Using them outside this website requires her consent. The source code is based on furchert.ch by Dominic Furchert and is licensed under the MIT licence."
+    "liabilityHeading": "Note",
+    "liabilityText": "This is a private, non-commercial website. I keep its content as accurate and up to date as I can. The operators of external websites I link to are responsible for their content.",
+    "copyrightHeading": "Copyright and licences",
+    "copyrightText": "Texts: © Melina Fabienne Stutz. Please ask me before using them outside this website. Parts of the source code come from furchert-ch, © 2026 Dominic Furchert, MIT licence. The icons are from Lucide (ISC licence, partly MIT licence); the fonts DM Sans, DM Mono and Newsreader are licensed under the SIL Open Font License 1.1.",
+    "licencesLink": "Full licence texts (text file)"
   },
   "privacy": {
     "title": "Privacy",
     "updated": "As of 2026-11",
-    "introText": "This privacy notice explains which personal data is processed when you visit melinastutz.com. It follows the Swiss Federal Act on Data Protection (FADP).",
+    "introText": "This privacy notice explains which personal data is processed when you visit melinastutz.com or contact me by email: for what purpose, who receives it and how long it is kept. It follows the Swiss Federal Act on Data Protection (FADP).",
     "controllerHeading": "Controller",
-    "controllerText": "Melina Fabienne Stutz, Merenschwand AG, Switzerland. Reachable at the email address in the imprint.",
+    "controllerText": "The controller is Melina Fabienne Stutz, Merenschwand AG, Switzerland. This is a private, non-commercial website. You can reach me at the email address in the imprint.",
     "visitHeading": "When you visit the website",
-    "visitText": "When you open a page, your browser sends technically necessary information: IP address, date and time, the page requested, the referrer and the browser identifier. This information is used only to deliver the website, keep it running securely and find errors. It is not combined with other data and is kept only as long as needed for these purposes.",
+    "visitText": "When you open a page, your browser sends technically necessary information: IP address, date and time, the page requested, the status code, the amount of data transferred, the previously visited page (referrer) and the browser identifier (user agent). This information is used only to deliver the website, protect it from attacks and find errors. It is not used for statistics and not combined with other data. Server logs are deleted automatically after 14 days. If a specific attack or error has to be investigated, the entries concerned are kept until the investigation is complete.",
     "hostingHeading": "Hosting and Cloudflare",
-    "hostingText": "The website runs on a privately operated server in Switzerland. Requests pass through the network of Cloudflare, Inc. (USA), which encrypts the connection and protects the website from attacks. Cloudflare may process the connection data listed above outside Switzerland as well. Cloudflare is certified under the Swiss-U.S. Data Privacy Framework.",
+    "hostingText": "The website runs on a privately operated server in Switzerland. A private individual operates the server on my behalf and may use the data only to run the website. All requests pass through the network of Cloudflare, Inc., San Francisco (USA). Cloudflare provides the encrypted connection, protects the website from attacks and forwards requests to the server. In doing so, Cloudflare processes the connection data listed above on my behalf, in the data centre closest to you (usually in Switzerland for visits from Switzerland) and in the USA. The Swiss Federal Council has recognised that US companies certified under the Swiss-U.S. Data Privacy Framework provide adequate data protection (in force since 15 September 2024). Cloudflare, Inc. is certified. For data centres in other countries without adequate protection, Cloudflare relies on the EU standard contractual clauses recognised by the FDPIC.",
     "noTrackingHeading": "No cookies, no tracking",
-    "noTrackingText": "This website sets no cookies, uses no analytics or advertising services and loads no third-party content. The fonts are served by this website itself.",
+    "noTrackingText": "This website sets no cookies, uses no analytics or advertising services and loads no third-party content. It serves its fonts itself. The LinkedIn link is a plain link: LinkedIn receives data only when you click it, and from then on LinkedIn’s privacy policy applies. Only if Cloudflare suspects automated access may it set a technically necessary security cookie.",
     "emailHeading": "Contact by email",
-    "emailText": "If you send an email, your details are used only to answer your enquiry and are not passed on to third parties.",
+    "emailText": "If you email me, I process your email address, your name and the content of your message to answer your enquiry. My mailbox is hosted by Apple’s iCloud Mail (Apple Distribution International Ltd., Ireland). Apple may also store emails in the USA and other countries and relies on standard contractual clauses for this. I do not pass your messages on to anyone else without your consent. I delete them once they are no longer needed for our correspondence, at the latest after 24 months.",
     "rightsHeading": "Your rights",
-    "rightsText": "You can request information about your personal data and ask for it to be corrected or deleted. Write to the email address in the imprint. You can also lodge a complaint with the Federal Data Protection and Information Commissioner (FDPIC)."
+    "rightsText": "You can ask whether and which personal data I process about you. You can also ask for incorrect data to be corrected, or for data to be deleted or no longer processed. Write to the email address in the imprint; I may ask you to confirm your identity. If you think I am not handling your data correctly, you can report this to the Federal Data Protection and Information Commissioner (FDPIC) or assert your claims before a civil court."
   },
   "notFound": {
     "title": "Page not found",

@@ -20,6 +20,11 @@ All notable changes to this project are documented here. The format follows
   test; multi-arch build and push to GHCR with Flux tags; CodeQL; Dependabot for npm, actions and both base
   images.
 - Kubernetes manifests for Flux: Deployment (2 replicas, hardened), Service, NetworkPolicy, PodDisruptionBudget.
+- Full licence texts (furchert-ch: MIT; Lucide: ISC and MIT; DM Sans, DM Mono, Newsreader: SIL OFL 1.1)
+  published with the site at `/third-party-notices.txt` and linked from the imprint; `THIRD_PARTY_NOTICES.md`
+  carries the same notices.
+- Share image for link previews: a static 1200×630 PNG per locale (`/de/og-image.png`, `/en/og-image.png`),
+  rendered at build time by `next/og`, referenced by every page as `og:image` and `twitter:image`.
 
 ### Changed
 
@@ -30,5 +35,15 @@ All notable changes to this project are documented here. The format follows
   only, while the spread over nodes covers reboots.
 - DEPLOYMENT.md: hand-over rewritten with the order of first deployment, the Cloudflare zone in the tunnel's
   account, exact Flux object and secret names, ruleset notes, a go-live gate and the CI coverage per event.
+- Privacy notice rewritten for the Swiss FADP: Cloudflare with the Swiss-U.S. Data Privacy Framework, iCloud
+  Mail, retention periods and the right to report to the FDPIC.
+- Imprint: notes on the private, non-commercial site and on external links; copyright and licences.
+- Sitemap with one entry per language.
+- Mobile menu and landmark fixes; smaller client bundle.
+- `llms.txt` describes the research page as it is now (motivation and interests) and the hospital years
+  accurately.
+- DEPLOYMENT.md: open points for Dominic on data protection roles and a processing agreement (14-day log
+  retention, Cloudflare features), the access log format, iCloud Mail and a yearly check of Cloudflare's DPF
+  certification.
 
 [Unreleased]: https://github.com/melinastutz8-glitch/melinastutz-com/commits/main

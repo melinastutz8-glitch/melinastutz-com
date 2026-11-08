@@ -10,7 +10,7 @@ see [DEPLOYMENT.md](DEPLOYMENT.md) for the runtime contract and the hand-over ch
 ## Stack
 
 - Next.js 16 (App Router, `output: 'export'`), React 19, TypeScript 6, next-intl 4
-- Self-hosted fonts via `next/font` (DM Sans, Newsreader), no third-party requests at runtime
+- Self-hosted fonts via `next/font` (DM Sans, DM Mono, Newsreader), no third-party requests at runtime
 - nginx-unprivileged 1.30 (stable) serving `out/`
 - Vitest, ESLint
 - GitHub Actions → multi-arch image on GHCR → Flux in the cluster
@@ -51,6 +51,7 @@ scripts/smoke-test.sh melinastutz-com:local   # the CI smoke test
 | --- | --- |
 | `src/app/[locale]/` | Pages: home, research, cv, contact, imprint, privacy |
 | `src/app/not-found.tsx` | The bilingual 404 page (`out/404.html`) |
+| `src/app/[locale]/og-image.png/route.tsx` | Share image per locale, rendered at build time (`out/de/og-image.png`, `out/en/og-image.png`) |
 | `src/i18n/messages/` | All page copy, `de.json` and `en.json` (same keys, tested) |
 | `src/data/cv.ts` | CV data used by the home timeline and the CV page |
 | `src/data/contact-email.ts` | The contact address, assembled only in the browser |

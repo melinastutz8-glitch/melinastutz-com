@@ -81,8 +81,8 @@ there from `nginxinc/` with 1.30.6); `COPY` cannot remove its stock `index.html`
 | Path class | Cache-Control |
 | --- | --- |
 | `/_next/static/*` (hashed, fonts included) | `public, max-age=31536000, immutable` |
-| Images, fonts, `.svg`, `.ico` outside `/_next/static/` | `public, max-age=86400` |
-| Everything else: HTML, RSC `*.txt`, `robots.txt`, `sitemap.xml`, `llms.txt`, all redirects, 404 | `no-cache` |
+| Images (incl. the share images `/de/og-image.png`, `/en/og-image.png`), fonts, `.svg`, `.ico` outside `/_next/static/` | `public, max-age=86400` |
+| Everything else: HTML, RSC `*.txt`, `robots.txt`, `sitemap.xml`, `llms.txt`, `third-party-notices.txt`, all redirects, 404 | `no-cache` |
 
 Redirects are `no-cache` on purpose, so a browser never keeps a redirect for a day.
 
@@ -107,7 +107,8 @@ test checks every header (exactly once) on HTML, a static asset, a redirect, the
 - `robots.txt` (from `src/app/robots.ts`): allow all, `Content-Signal: search=yes, ai-input=yes, ai-train=no`,
   sitemap URL. If Cloudflare's managed robots.txt is enabled, it is prepended; it never sets `ai-input`, so that
   signal comes from this file.
-- `sitemap.xml`: every page with `lastmod` from `src/lib/seo/pages.ts` and hreflang alternates.
+- `sitemap.xml`: one entry per page and language, with `lastmod` from `src/lib/seo/pages.ts` and hreflang
+  alternates.
 - `llms.txt`: plain-language summary for AI assistants.
 - Canonical, hreflang (`de`, `en`, `x-default` → German) and sitemap URLs all end with `/`.
 
@@ -233,8 +234,31 @@ check for Flux's first tag commit on `main` (step 0).
 ### Open points for Dominic
 
 - The privacy notice says the site runs on a privately operated server in Switzerland behind Cloudflare and
-  that access logs are kept only as long as needed. Please confirm the server location and tell us the actual
-  log retention (nginx logs go to stdout; whatever collects them decides), so the text can be exact.
+  that server logs are deleted after 14 days. Please confirm the server location and that the 14 days hold
+  (nginx logs go to stdout; whatever collects them decides). The processing agreement below covers both.
+- **Data protection roles.** Melina is the controller; Dominic processes the site's data on her behalf as a
+  processor (Art. 9 FADP / revDSG); Cloudflare is his sub-processor under Cloudflare's self-serve Data Processing
+  Addendum, which is incorporated in its Self-Serve Subscription Agreement. Melina approves Cloudflare as
+  sub-processor. Please confirm a short processing agreement with her by email, before go-live (step 5):
+  - Data are used only to host and secure the site.
+  - Server logs are deleted after 14 days wherever they end up, because the privacy notice promises 14 days.
+    Container logs rotate by size, not by age (at this traffic old lines can stay for months), so this includes
+    any log collector and backups.
+  - Cloudflare features that set cookies or add scripts or logging stay off unless Melina agrees: Bot Fight Mode
+    and challenges (cookies `__cf_bm`, `cf_clearance`), Web Analytics / RUM, Zaraz. The privacy notice says only
+    that a security cookie may be set when Cloudflare suspects automated access.
+  - Security incidents are reported to Melina promptly.
+  - Dominic helps Melina answer access requests from visitors.
+  - The server stays in Switzerland unless he tells her first. The notice states Switzerland: please confirm.
+- **Access log format.** The base image's `nginx.conf` (unchanged here) uses the `main` log format, which logs
+  `$http_x_forwarded_for`, i.e. the visitor's IP address as passed on by Cloudflare. That is fine and consistent
+  with the privacy notice, which lists the IP address. Dominic may shorten it (a PR here can set a shorter
+  `log_format` in `nginx/default.conf`).
+- **Email.** The domain's MX records point to Apple iCloud Mail (confirmed by Melina), and the privacy notice
+  names Apple. Keep the MX, SPF and DKIM records as they are when the zone moves to Cloudflare. If the mail
+  provider changes, the privacy notice must change too.
+- **Swiss-U.S. Data Privacy Framework.** The privacy notice relies on Cloudflare, Inc. being certified. Re-check
+  once a year that its entry is still active: <https://www.dataprivacyframework.gov/participant/5666>.
 - Resource limits (`cpu: 200m`, `memory: 64Mi`) are the brief's values; they were not load-tested locally
   (no Docker on Melina's machine). nginx serving static files typically stays far below them.
 - Please confirm the k3s version. The manifests are validated against Kubernetes 1.32 schemas, and the `preStop`

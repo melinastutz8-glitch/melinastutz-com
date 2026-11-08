@@ -65,7 +65,12 @@ export default async function HomePage({ params }: Props) {
             <h1 className="hero-title">{t('title')}</h1>
             <p className="lead">{t('sub')}</p>
             <div className="actions">
-              <ContactEmail label={t('ctaPrimary')} subject={contact('emailSubject')} className="btn btn-primary" />
+              <ContactEmail
+                locale={locale}
+                label={t('ctaPrimary')}
+                subject={contact('emailSubject')}
+                className="btn btn-primary"
+              />
               <Link href={localePath(locale, '/research')} className="btn btn-secondary">
                 {t('ctaSecondary')}
               </Link>

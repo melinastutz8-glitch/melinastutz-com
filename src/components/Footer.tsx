@@ -13,7 +13,7 @@ export async function Footer({ locale }: { locale: Locale }) {
           <p className="wordmark">Melina Stutz</p>
           <p className="muted">{t('tagline')}</p>
         </div>
-        <nav className="footer-links" aria-label={nav('label')}>
+        <nav className="footer-links" aria-label={t('pages')}>
           <Link href={localePath(locale, '/research')}>{nav('research')}</Link>
           <Link href={localePath(locale, '/cv')}>{nav('cv')}</Link>
           <Link href={localePath(locale, '/contact')}>{nav('contact')}</Link>

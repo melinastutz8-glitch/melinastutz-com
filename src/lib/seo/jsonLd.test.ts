@@ -15,7 +15,7 @@ describe('buildHomeJsonLd', () => {
   it('describes the site, the page and the person with stable ids', () => {
     const nodes = graph(buildHomeJsonLd(input));
     expect(nodes.map((n) => n['@type'])).toEqual(['WebSite', 'WebPage', 'Person']);
-    expect(nodes[0]['@id']).toBe(WEBSITE_ID);
+    expect(nodes[0]).toMatchObject({ '@id': WEBSITE_ID, name: 'Melina Stutz', alternateName: 'melinastutz.com' });
     expect(nodes[1]).toMatchObject({ url: input.pageUrl, inLanguage: 'de', about: { '@id': PERSON_ID } });
     expect(nodes[2]).toMatchObject({ '@id': PERSON_ID, name: 'Melina Stutz' });
   });
