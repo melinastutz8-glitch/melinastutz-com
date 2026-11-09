@@ -25,7 +25,7 @@ export default async function ResearchPage({ params }: Props) {
         <div className="container page-head-inner">
           <h1 className="page-title">{t('title')}</h1>
           <p className="lead">{t('intro')}</p>
-          <DnaHelix label={t('helixLabel')} caption={t('helixCaption')} />
+          <DnaHelix label={t('helixLabel')} caption={t('helixCaption')} sourceLabel={t('helixSource')} />
         </div>
       </header>
 
