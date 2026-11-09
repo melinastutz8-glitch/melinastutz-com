@@ -29,10 +29,12 @@ All notable changes to this project are documented here. The format follows
   (`unhealthyPodEvictionPolicy: AlwaysAllow`); the image tag is a placeholder until the first `main` build.
 - DEPLOYMENT.md with the runtime contract and the hand-over for Dominic (order of first deployment, Cloudflare
   zone in the tunnel's account, Flux names, rulesets, go-live gate, CI coverage per event).
-- Research page head: a slowly turning B-DNA double helix of the first 48 base pairs of the human mitochondrial
-  genome (rCRS, NC_012920.1) in the style of a textbook figure: minor and major grooves, base pairs coloured by
-  base, a position ruler and a source link; SVG without dependencies, still with reduced motion, paused off
-  screen.
+- Research page head: an interactive 3D model of the first base pairs of the human mitochondrial genome (rCRS,
+  NC_012920.1) as ideal B-DNA, built from the all-atom fiber model of Chandrasekaran & Arnott (via 3DNA, BSD) and
+  drawn on a canvas as a "tube and ring" cartoon (backbone tubes through the phosphorus atoms, base rings in the
+  NDB colours, Watson–Crick hydrogen bonds, depth cueing and perspective); right-handedness, strand polarity and
+  hydrogen-bond geometry are unit-tested. Turns slowly, can be rotated by drag or arrow keys, stands still with
+  reduced motion; the sequence below in GenBank-style blocks.
 - Privacy notice for the Swiss FADP (Cloudflare with the Swiss-U.S. Data Privacy Framework, iCloud Mail,
   retention periods, reporting to the FDPIC) and an imprint with notes on copyright and licences.
 

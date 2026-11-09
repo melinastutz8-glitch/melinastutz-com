@@ -209,3 +209,44 @@ The share images `/de/og-image.png` and `/en/og-image.png` are rendered at build
 (`@vercel/og`, MPL-2.0, part of Next.js) with its built-in Geist font (SIL Open Font License 1.1,
 Copyright 2024 The Geist Project Authors, https://github.com/vercel/geist-font). Only the rendered PNG is
 published; no font file is shipped to visitors.
+
+## 3DNA (B-DNA fiber model coordinates)
+
+`src/data/bdnaFiber.ts` contains the atomic coordinates of one B-DNA nucleotide from the fiber model of
+R. Chandrasekaran and S. Arnott (Landolt-Börnstein, Group VII, Vol. 1b, Table 2.4.4.2), as distributed with 3DNA
+v2.4 (<https://github.com/x3dna-dssr/x3dna-v2.4>, file `fiber/data/s04_bdna`, commit
+`398cfcee57a7dfc7e1e7c3baec9a3643f821bbe3`), converted from nm to Å with atoms renamed to the NDB convention.
+3DNA: X.-J. Lu and W. K. Olson, Nucleic Acids Research 31 (2003) 5108–5121; Nature Protocols 3 (2008) 1213–1227.
+
+```
+BSD 3-Clause License
+
+Copyright (c) 1999-2026, Xiang-Jun Lu and Wilma K. Olson
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
+

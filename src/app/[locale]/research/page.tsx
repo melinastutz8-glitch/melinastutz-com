@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { isLocale } from '@/i18n/routing';
 import { ContactBand } from '@/components/ContactBand';
-import { DnaHelix } from '@/components/DnaHelix';
+import { DnaModel } from '@/components/DnaModel';
 import { Pending } from '@/components/Pending';
 import { localizedPageMetadata } from '@/lib/seo/pageMetadata';
 
@@ -25,7 +25,23 @@ export default async function ResearchPage({ params }: Props) {
         <div className="container page-head-inner">
           <h1 className="page-title">{t('title')}</h1>
           <p className="lead">{t('intro')}</p>
-          <DnaHelix label={t('helixLabel')} caption={t('helixCaption')} sourceLabel={t('helixSource')} />
+          <DnaModel
+            label={t('dnaLabel')}
+            hint={t('dnaHint')}
+            caption={t('dnaCaption')}
+            sourceLabel={t('dnaSources')}
+            modelSource={t('dnaModelSource')}
+            legend={{
+              title: t('dnaLegendTitle'),
+              A: t('dnaLegendA'),
+              C: t('dnaLegendC'),
+              G: t('dnaLegendG'),
+              T: t('dnaLegendT'),
+              P: t('dnaLegendP'),
+              strand1: t('dnaLegendStrand1'),
+              strand2: t('dnaLegendStrand2'),
+            }}
+          />
         </div>
       </header>
 
