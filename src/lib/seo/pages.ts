@@ -7,8 +7,9 @@
 export const SITE_LAUNCH_DATE = '2026-11-08';
 
 export const PAGE_LAST_MODIFIED = {
-  '/': '2026-11-08',
-  // Turning mtDNA double helix in the page head.
+  // Glowing mtDNA helix in the hero, timeline in its own section.
+  '/': '2026-11-09',
+  // Glowing mtDNA helix band in the page head.
   '/research': '2026-11-09',
   '/cv': '2026-11-08',
   '/contact': '2026-11-08',

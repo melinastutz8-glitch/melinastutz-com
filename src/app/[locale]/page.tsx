@@ -6,6 +6,7 @@ import { isLocale, localePath } from '@/i18n/routing';
 import { CLINICAL, formatRange } from '@/data/cv';
 import { buildMonth } from '@/lib/buildMonth';
 import { Timeline } from '@/components/Timeline';
+import { DnaGlow } from '@/components/DnaGlow';
 import { Icon } from '@/components/Icon';
 import { ContactBand } from '@/components/ContactBand';
 import { ContactEmail } from '@/components/ContactEmail';
@@ -76,6 +77,12 @@ export default async function HomePage({ params }: Props) {
               </Link>
             </div>
           </div>
+          <DnaGlow label={t('dnaLabel')} variant="hero" />
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
           <Timeline
             locale={locale}
             labels={{

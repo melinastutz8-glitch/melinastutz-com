@@ -362,64 +362,24 @@ ul, ol { list-style: none; }
 .not-found-alt { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 8px; }
 .not-found-alt .section-title { margin-bottom: 0; font-size: 1.25rem; }
 
-/* ── DNA model (research page) ──
-   The start of the human mitochondrial genome as an all-atom B-DNA model in
-   3D (src/components/DnaModel.tsx). This is the page's one rich moment, so it
-   may carry more than the accent, as long as every colour means something:
-   the strands (reference strand in the accent, complementary strand slate),
-   phosphorus atoms in the element colour orange, and the bases in the NDB
-   convention used by 3DNA: A red, C yellow, G green, T blue. The tokens are
-   text colours with at least 4.5:1 contrast in both themes. */
-:root {
-  --dna-a: #b23b30;
-  --dna-c: #7a5f00;
-  /* Cytosine as a surface: real NDB yellow; the darker --dna-c is for text. */
-  --dna-c-fill: #e3bd1f;
-  --dna-g: #2f7a45;
-  --dna-t: #2f5fa3;
-  --dna-p: #a95d12;
-  --dna-strand-2: #6f7f8c;
+/* ── Glowing DNA (home hero, research page) ──
+   An eye-catcher, not a figure: the real right-handed B-DNA (src/lib/dna3d)
+   as luminous mint tubes on a deep green-black panel with bloom, sparkle,
+   out-of-focus helices and floating specks (src/components/DnaGlow.tsx). The
+   panel is dark in both colour schemes, like a photograph on the page; the
+   mint is the site's sage turned luminous. */
+.dna-glow {
+  position: relative; overflow: hidden; border-radius: var(--radius-panel);
+  background: radial-gradient(120% 95% at 35% 40%, #0e2a1f 0%, #07140f 55%, #040b08 100%);
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --dna-a: #f0928a;
-    --dna-c: #e9cf6b;
-    --dna-c-fill: #e9cf6b;
-    --dna-g: #8ad19b;
-    --dna-t: #93b6ee;
-    --dna-p: #f0a050;
-    --dna-strand-2: #9aa8b3;
-  }
+.dna-glow::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(2, 6, 4, 0.55) 100%);
 }
-.base-A { color: var(--dna-a); }
-.base-C { color: var(--dna-c); }
-.base-G { color: var(--dna-g); }
-.base-T { color: var(--dna-t); }
-
-.dna { margin-top: 8px; display: flex; flex-direction: column; gap: 16px; }
-.dna-canvas {
-  display: block; width: 100%; height: 260px;
-  cursor: grab; touch-action: pan-y; border-radius: var(--radius-card);
+.dna-glow canvas { display: block; width: 100%; height: 100%; }
+.dna-glow-hero { aspect-ratio: 5 / 4; min-height: 320px; }
+.dna-glow-band { height: 240px; margin-top: 8px; }
+@media (max-width: 640px) {
+  .dna-glow-hero { aspect-ratio: 4 / 3; min-height: 0; }
+  .dna-glow-band { height: 190px; }
 }
-.dna-canvas:active { cursor: grabbing; }
-.dna-canvas:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-/* On phones fewer base pairs fit the width, so the helix is smaller: a lower canvas avoids an empty band. */
-@media (max-width: 640px) { .dna-canvas { height: 170px; } }
-
-.dna-sequence {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px;
-  font-family: var(--font-mono), ui-monospace, monospace; font-size: 0.8125rem; letter-spacing: 0.08em;
-}
-.dna-block { display: inline-flex; align-items: baseline; }
-.dna-pos { margin-right: 8px; font-size: 0.75rem; letter-spacing: 0; color: var(--text-3); }
-.dna-end { font-size: 0.75rem; letter-spacing: 0; color: var(--text-3); }
-
-.dna-caption { display: flex; flex-direction: column; gap: 8px; max-width: 48rem; font-size: 0.875rem; color: var(--text-3); }
-.dna-legend { display: flex; flex-wrap: wrap; gap: 4px 16px; list-style: none; color: var(--text-2); }
-.dna-legend li { display: inline-flex; align-items: center; gap: 8px; }
-.dna-swatch { width: 10px; height: 10px; border-radius: 2px; background: currentColor; }
-.dna-swatch.base-C { background: var(--dna-c-fill); }
-.dna-swatch-p { border-radius: 50%; background: var(--dna-p); }
-.dna-line { width: 16px; height: 3px; border-radius: 2px; }
-.dna-line-1 { background: var(--accent); }
-.dna-line-2 { background: var(--dna-strand-2); }

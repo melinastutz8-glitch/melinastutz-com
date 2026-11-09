@@ -215,7 +215,8 @@ published; no font file is shipped to visitors.
 `src/data/bdnaFiber.ts` contains the atomic coordinates of one B-DNA nucleotide from the fiber model of
 R. Chandrasekaran and S. Arnott (Landolt-Börnstein, Group VII, Vol. 1b, Table 2.4.4.2), as distributed with 3DNA
 v2.4 (<https://github.com/x3dna-dssr/x3dna-v2.4>, file `fiber/data/s04_bdna`, commit
-`398cfcee57a7dfc7e1e7c3baec9a3643f821bbe3`), converted from nm to Å with atoms renamed to the NDB convention.
+`398cfcee57a7dfc7e1e7c3baec9a3643f821bbe3`), converted from nm to Å with atoms renamed to the NDB convention. It drives the glowing DNA on the home and research
+pages.
 3DNA: X.-J. Lu and W. K. Olson, Nucleic Acids Research 31 (2003) 5108–5121; Nature Protocols 3 (2008) 1213–1227.
 
 ```
