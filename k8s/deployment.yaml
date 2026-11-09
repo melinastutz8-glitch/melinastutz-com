@@ -1,0 +1,111 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: melinastutz-com
+  namespace: apps
+  labels:
+    app: melinastutz-com
+spec:
+  # Stateless static site: two replicas spread over nodes (below) survive a
+  # single node reboot. The homelab reboots nodes via systemctl and kubelet
+  # graceful shutdown, not drains, so the PDB (pdb.yaml) only guards manual
+  # drains; the spread is what keeps the site up during a reboot.
+  replicas: 2
+  selector:
+    matchLabels:
+      app: melinastutz-com
+  template:
+    metadata:
+      labels:
+        app: melinastutz-com
+    spec:
+      automountServiceAccountToken: false
+      # Do not inject every Service in `apps` as env vars (same as club-mcp).
+      enableServiceLinks: false
+      # Spread the replicas over nodes when possible.
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app: melinastutz-com
+      # Prefer worker nodes, keep load off the control plane.
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: node-role.kubernetes.io/control-plane
+                    operator: DoesNotExist
+      # UID/GID 101 = nginx in nginx/nginx-unprivileged; numeric so the
+      # kubelet can verify runAsNonRoot.
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 101
+        runAsGroup: 101
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: melinastutz-com
+          # PLACEHOLDER: main-00000000T000000 does not exist in GHCR. A
+          # follow-up PR must replace it with the first real main-<ts> tag
+          # from the first main build (DEPLOYMENT.md, "Order of first
+          # deployment"). After that, Flux image automation (ImagePolicy
+          # ^main-[0-9]{8}T[0-9]{6}$) manages this line and commits new tags
+          # to main. Keep the setter comment at the end of the line.
+          image: ghcr.io/melinastutz8-glitch/melinastutz-com:main-00000000T000000 # {"$imagepolicy": "flux-system:melinastutz-com"}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          # nginx writes only its pid file and temp files, all under /tmp
+          # (set by the image's nginx.conf).
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+          # Covers the gap between endpoint removal and nginx shutdown, so
+          # cloudflared gets no 502s during rollouts. Native sleep action
+          # (Kubernetes >= 1.30; the cluster runs k3s v1.32), no shell needed.
+          lifecycle:
+            preStop:
+              sleep:
+                seconds: 5
+          startupProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            periodSeconds: 2
+            failureThreshold: 15
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            periodSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            periodSeconds: 20
+            # Above the 1s default: CPU throttling on the Raspberry Pis can
+            # delay a healthy answer.
+            timeoutSeconds: 2
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 200m
+              memory: 64Mi
+      volumes:
+        - name: tmp
+          emptyDir:
+            sizeLimit: 16Mi

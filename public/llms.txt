@@ -1,0 +1,19 @@
+# melinastutz.com | Melina Stutz
+
+> Personal website of Melina Stutz, Switzerland. She is an MSc student in Biomedicine at the University of Zurich and is looking for a PhD position in mitochondrial and metabolic research. From 2017 to 2026 she worked at the district hospital Affoltern am Albis, first as an apprentice (Fachfrau Gesundheit EFZ, a trained healthcare worker), then alongside her studies. The site is in German (default) and English.
+
+- Education: apprenticeship as a trained healthcare worker (Fachfrau Gesundheit EFZ) with vocational baccalaureate in Winterthur (2017 to 2020), university entrance course (Passerelle) in Aarau (2020 to 2021), BSc in Biomedicine at the University of Zurich (2021 to 2025), MSc in Biomedicine at the University of Zurich (since 2025).
+- Engagement: youth gymnastics coach (2020 to 2024), mathematics tutor (since 2022), youth programme of a riding club (since 2026).
+- Languages: German, English, French.
+- German pages are under /de/, English pages under /en/.
+
+## Pages
+
+- [Forschung](https://melinastutz.com/de/research/): her motivation for research and her interest in mitochondria and metabolism. Lab methods, projects and posters are still to be added. English: [Research](https://melinastutz.com/en/research/)
+- [Werdegang](https://melinastutz.com/de/cv/): education, hospital work and engagement. English: [CV](https://melinastutz.com/en/cv/)
+- [Kontakt](https://melinastutz.com/de/contact/): how to reach her about PhD positions. English: [Contact](https://melinastutz.com/en/contact/)
+
+## Optional
+
+- [Start](https://melinastutz.com/de/): home page with a short profile. English: [Home](https://melinastutz.com/en/)
+- [Sitemap](https://melinastutz.com/sitemap.xml): all pages with language versions.

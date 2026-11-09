@@ -1,0 +1,17 @@
+# Target of the Cloudflare tunnel route:
+# melinastutz.com → http://melinastutz-com.apps.svc.cluster.local:8080
+apiVersion: v1
+kind: Service
+metadata:
+  name: melinastutz-com
+  namespace: apps
+  labels:
+    app: melinastutz-com
+spec:
+  type: ClusterIP
+  selector:
+    app: melinastutz-com
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080

@@ -1,0 +1,38 @@
+# dependencies
+/node_modules
+.pnpm-store/
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+pnpm-debug.log*
+.eslintcache
+
+# local env files (this site has no runtime env; keep secrets out anyway)
+.env
+.env*.local
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# editors
+.idea/
+.vscode/
+*.swp
+
+# Claude Code local files
+.claude/settings.local.json
+.claude/settings.json
+.claude/worktrees/
+.claude/launch.json
