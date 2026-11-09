@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { isLocale } from '@/i18n/routing';
 import { ContactBand } from '@/components/ContactBand';
+import { DnaHelix } from '@/components/DnaHelix';
 import { Pending } from '@/components/Pending';
 import { localizedPageMetadata } from '@/lib/seo/pageMetadata';
 
@@ -24,6 +25,7 @@ export default async function ResearchPage({ params }: Props) {
         <div className="container page-head-inner">
           <h1 className="page-title">{t('title')}</h1>
           <p className="lead">{t('intro')}</p>
+          <DnaHelix label={t('helixLabel')} caption={t('helixCaption')} />
         </div>
       </header>
 

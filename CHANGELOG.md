@@ -29,6 +29,8 @@ All notable changes to this project are documented here. The format follows
   (`unhealthyPodEvictionPolicy: AlwaysAllow`); the image tag is a placeholder until the first `main` build.
 - DEPLOYMENT.md with the runtime contract and the hand-over for Dominic (order of first deployment, Cloudflare
   zone in the tunnel's account, Flux names, rulesets, go-live gate, CI coverage per event).
+- Research page head: a slowly turning DNA double helix of the first 48 base pairs of the human mitochondrial
+  genome (rCRS, NC_012920.1), drawn as SVG without dependencies; still with reduced motion, paused off screen.
 - Privacy notice for the Swiss FADP (Cloudflare with the Swiss-U.S. Data Privacy Framework, iCloud Mail,
   retention periods, reporting to the FDPIC) and an imprint with notes on copyright and licences.
 

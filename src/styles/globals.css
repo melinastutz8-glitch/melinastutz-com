@@ -361,3 +361,28 @@ ul, ol { list-style: none; }
 .not-found { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; padding-block: 128px 96px; }
 .not-found-alt { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 8px; }
 .not-found-alt .section-title { margin-bottom: 0; font-size: 1.25rem; }
+
+/* ── DNA helix (research page) ──
+   The start of the human mitochondrial genome as a slowly turning double
+   helix (src/components/DnaHelix.tsx, geometry in src/lib/helix.ts). The
+   accent goes to one backbone only; the partner strand, the rungs and the
+   letters stay in the neutral ramp. The front part of each strand is drawn
+   strong, the back part faint. The SVG keeps its pixel size and is cropped
+   on narrow screens, fading out to the right, so the letters stay legible. */
+.helix { margin-top: 8px; display: flex; flex-direction: column; gap: 8px; }
+.helix-viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent);
+}
+.helix-svg { display: block; max-width: none; }
+.helix-strand { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.helix-strand.is-front { stroke-width: 2.5; }
+.helix-strand.is-back { stroke-width: 1.5; opacity: 0.35; }
+.helix-strand-a { stroke: var(--accent); }
+.helix-strand-b { stroke: var(--text-3); }
+.helix-rung { stroke: var(--hairline-strong); stroke-width: 1.5; stroke-linecap: round; }
+.helix-base, .helix-end { font-family: var(--font-mono), ui-monospace, monospace; font-size: 12px; }
+.helix-base-top { fill: var(--text-2); }
+.helix-base-bottom, .helix-end { fill: var(--text-3); }
+.helix-caption { font-size: 0.875rem; color: var(--text-3); }

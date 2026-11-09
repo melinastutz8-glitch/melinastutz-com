@@ -65,6 +65,8 @@
   "research": {
     "title": "Forschung",
     "intro": "Mich interessiert, wie Mitochondrien die Zelle mit Energie versorgen und was passiert, wenn sie dabei versagen",
+    "helixLabel": "Sich drehende DNA-Doppelhelix: der Anfang der menschlichen mitochondrialen DNA",
+    "helixCaption": "Der Anfang der menschlichen mitochondrialen DNA, Referenzsequenz rCRS (NC_012920.1, 16'569 Basenpaare)",
     "motivationHeading": "Vom Patientenbett zur Zelle",
     "motivationClinic": "Die Jahre im Spital haben mir gezeigt, was eine Krankheit für einen Menschen im Alltag bedeutet. Diese Perspektive nehme ich mit in die Forschung.",
     "motivationMito": "Mitochondrien versorgen die Zelle mit Energie und tragen ihr eigenes Erbgut. Fallen sie aus, sind oft mehrere Organe zugleich betroffen, vor allem solche mit hohem Energiebedarf wie Gehirn, Muskeln und Herz.",

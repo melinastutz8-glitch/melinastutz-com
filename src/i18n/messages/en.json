@@ -65,6 +65,8 @@
   "research": {
     "title": "Research",
     "intro": "I want to understand how mitochondria supply the cell with energy, and what happens when they fail",
+    "helixLabel": "Turning DNA double helix: the start of human mitochondrial DNA",
+    "helixCaption": "The start of human mitochondrial DNA, reference sequence rCRS (NC_012920.1, 16,569 base pairs)",
     "motivationHeading": "From the bedside to the cell",
     "motivationClinic": "My years in hospital showed me what a disease means for a person's daily life. I bring that perspective into research.",
     "motivationMito": "Mitochondria power the cell and carry their own genome. When they fail, several organs are often affected at once, above all those with a high energy demand such as the brain, muscle and heart.",
